@@ -1,10 +1,11 @@
 #!/bin/bash 
 
-# stop server and grunt
-# for i in `ps | grep 'python\|grunt' | tail -n 2 | awk '{print $1}'`
+# gets start script parent process id
 JOBLINE=`ps -ef | grep "[s]tart.sh" | awk '{print $3}'`
 
 echo "killing script: ${JOBLINE}"
+
+# kills parent and all child processes
 kill -TERM -${JOBLINE}
 
 # success
