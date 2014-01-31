@@ -2,7 +2,7 @@ install:
 	npm install 
 
 start:
-	source ./bin/start.sh
+	./bin/start.sh
 
 stop:
 	./bin/stop.sh
