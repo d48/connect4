@@ -1,7 +1,10 @@
 install:
-	npm install && node_modules/grunt-cli/bin/grunt	
+	npm install 
 
-run:
-	node_modules/grunt-cli/bin/grunt
+start:
+	source ./bin/start.sh
 
-.PHONY: install
+stop:
+	./bin/stop.sh
+
+.PHONY: start
