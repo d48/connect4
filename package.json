@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startapp": "source ./bin/start.sh"
+    "start": "bin/start.sh",
+    "stop": "bin/stop.sh"
   },
   "author": "Ryan Regalado <ryan@design48.net> (http://blog.design48.net/)",
   "license": "BSD",
