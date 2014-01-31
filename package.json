@@ -1,0 +1,16 @@
+{
+  "name": "grunt-watch-boilerplate",
+  "version": "0.0.1",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Regalado <ryan@design48.net> (http://blog.design48.net/)",
+  "license": "BSD",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-cli": "~0.1.13"
+  }
+}
