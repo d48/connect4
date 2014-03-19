@@ -5,7 +5,8 @@ generator for grunt and grunt-contrib-watch repo for quick local testing using l
 
 ## Requirements 
 
-Running OSX
+* Running OSX
+* node/npm installed
 
 
 ## Usage
