@@ -1,28 +1,30 @@
 body {
-    background-color: #0081F9;
-    color: #fff;
-}
+  background-color: #0081f9;
+  color: white;
+  text-align: center;
+  width: 100%; }
 
 #logo {
-    background-image: url(../img/logo.png);
-    background-repeat: no-repeat;
-    text-indent: 9999px;
-    width: 500px;
-    height: 100px;
-}
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  text-indent: 9999px;
+  width: 500px;
+  height: 100px;
+  margin: 0 auto; }
 
 #game {
-}
-#game ul {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 500px; }
+  #game ul {
     clear: both;
     list-style-type: none;
-}
-#game ul li {
-    border: 1px solid white;
-   float: left;
-   line-height: 30px;
-   height: 30px;
-   width: 30px;
-   text-align: center;
-   vertical-align: middle;
-}
+    margin: 0;
+    padding: 0; }
+    #game ul li {
+      border: 1px solid white;
+      float: left;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center; }
