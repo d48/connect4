@@ -59,3 +59,10 @@ body {
   font-size: 40px;
   font-family: Arial, sans-serif;
   padding-top: 30px; }
+
+.spinner {
+  width: 142px;
+  height: 142px;
+  background-image: url(../img/spinner.gif);
+  background-repeat: no-repeat;
+  margin: 0 auto; }
