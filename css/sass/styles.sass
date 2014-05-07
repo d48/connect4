@@ -2,6 +2,9 @@
 $cellSpacing: 60px
 $bgColor: #0081F9
 $fgColor: #fff
+$gameBgColor: #99ccff
+$redPieceColor: red
+$yellowPieceColor: yellow
 
 // main
 body
@@ -13,12 +16,14 @@ body
 #logo
     background-image: url(../img/logo.png)
     background-repeat: no-repeat
-    text-indent: 9999px
+    background-position: -10px 0
+    text-indent: -9999px
     width: 500px
     height: 100px
     margin: 0 auto
     
 #game
+    color: #000
     margin: 0 auto
     margin-top: 30px
     width: 500px
@@ -30,10 +35,28 @@ body
         padding: 0
 
         li 
-            border: 1px solid #fff
+            background-color: $gameBgColor
+            border: 1px solid #000
             float: left
             width: $cellSpacing
             height: $cellSpacing
             line-height: $cellSpacing
             text-align: center
-    
+   
+.pieceRed
+    border: 50px
+    border-color: $gameBgColor
+    background-color: $redPieceColor
+    display: block
+    width: $cellSpacing
+    height: $cellSpacing
+
+.pieceYellow
+    border: 50px
+    border-color: $gameBgColor
+    background-color: $yellowPieceColor
+    display: block
+    width: $cellSpacing
+    height: $cellSpacing
+
+

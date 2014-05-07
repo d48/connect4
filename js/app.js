@@ -22,6 +22,30 @@ var Board = function(options) {
         _drawBoard.call(this);
     }
 
+    function _processCell(sText) {
+        var liCol = document.createElement('li');
+
+        switch(sText) {
+            case 'R': 
+                spanText = document.createElement('span');
+                spanText.innerText = sText;     
+                spanText.className = 'pieceRed';
+                liCol.appendChild(spanText);
+                break;
+            case 'Y': 
+                spanText = document.createElement('span');
+                spanText.innerText = sText;     
+                spanText.className = 'pieceYellow';
+                liCol.appendChild(spanText);
+                break;
+            default:
+                liCol.innerText= '';
+                break;
+        }
+
+        return liCol;
+    }
+
     function _drawBoard() {
         var nCol = 0
             , nRow = 0
@@ -30,7 +54,9 @@ var Board = function(options) {
             , ulRow
             , liCol
             , lenCol
+            , sText
             ;
+
 
         // iterate through game array, starting at rows
         for(; nRow < lenRows; nRow++) {
@@ -41,9 +67,7 @@ var Board = function(options) {
 
             // iterate through row columns
             for(; nCol < lenCol; nCol++) {
-                liCol = document.createElement('li');
-                liCol.innerText = row[nCol];
-                ulRow.appendChild(liCol);
+                ulRow.appendChild(_processCell(row[nCol]));
             }
             // reset column
             nCol = 0; 
@@ -66,6 +90,8 @@ var Board = function(options) {
 
 };
 
+
+// create instance
 var board = new Board({
     target: elGame
     , gameBoard: aBoard1 

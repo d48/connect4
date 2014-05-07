@@ -7,12 +7,14 @@ body {
 #logo {
   background-image: url(../img/logo.png);
   background-repeat: no-repeat;
-  text-indent: 9999px;
+  background-position: -10px 0;
+  text-indent: -9999px;
   width: 500px;
   height: 100px;
   margin: 0 auto; }
 
 #game {
+  color: black;
   margin: 0 auto;
   margin-top: 30px;
   width: 500px; }
@@ -22,9 +24,26 @@ body {
     margin: 0;
     padding: 0; }
     #game ul li {
-      border: 1px solid white;
+      background-color: #99ccff;
+      border: 1px solid black;
       float: left;
       width: 60px;
       height: 60px;
       line-height: 60px;
       text-align: center; }
+
+.pieceRed {
+  border: 50px;
+  border-color: #99ccff;
+  background-color: red;
+  display: block;
+  width: 60px;
+  height: 60px; }
+
+.pieceYellow {
+  border: 50px;
+  border-color: #99ccff;
+  background-color: yellow;
+  display: block;
+  width: 60px;
+  height: 60px; }
