@@ -5,11 +5,14 @@
  * @param {object} [options] - board configuration options
  * @returns {object} - game board object with api: gameBoard, target
  * @namespace
+ * @todo create iife to hold context of instance. Should fix `this` referring to window
  */
 var Board = function(options) {
 
     this.gameBoard = typeof options.gameBoard !== 'undefined' ? options.gameBoard : [];
     this.target = typeof options.target !== 'undefined' ? options.target: null;
+
+    var appendChild = 'appendChild';
 
 
     /**
@@ -44,7 +47,7 @@ var Board = function(options) {
         elResultContainer.className = 'results';
         elResultContainer.innerText = 'Red wins';
 
-        elGameTarget.parentNode.appendChild(elResultContainer); 
+        elGameTarget.parentNode[appendChild](elResultContainer); 
     }
 
 
@@ -98,7 +101,7 @@ var Board = function(options) {
             , ulRow
             , liCol
             , lenCol
-            , sText
+            , row
             ;
 
 
@@ -134,6 +137,8 @@ var Board = function(options) {
         , target: this.target
     }
 };
+
+
 
 
 
