@@ -52,3 +52,10 @@ body {
   display: block;
   width: 60px;
   height: 60px; }
+
+.results {
+  clear: both;
+  display: block;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  padding-top: 30px; }

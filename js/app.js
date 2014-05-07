@@ -1,3 +1,11 @@
+/**
+ * Namespace for game board
+ * 
+ * @name Board
+ * @param {object} [options] - board configuration options
+ * @returns {object} - game board object with api: gameBoard, target
+ * @namespace
+ */
 var Board = function(options) {
 
     this.gameBoard = typeof options.gameBoard !== 'undefined' ? options.gameBoard : [];
@@ -10,10 +18,12 @@ var Board = function(options) {
      * @name _init
      * @returns {void} - process game board drawing and results
      * @method 
+     * @memberof Board
+     * @inner
      */
     function _init() {
         _drawBoard.call(this);
-        _showResult();
+        _showResult.call(this);
     }
 
 
@@ -23,6 +33,8 @@ var Board = function(options) {
      * @name _showResult
      * @returns {void} - outputs text to screen
      * @method 
+     * @memberof Board
+     * @inner
      */
     function _showResult() {
         var elResultContainer = document.createElement('div')
@@ -43,6 +55,8 @@ var Board = function(options) {
      * @param {string} sText - R|Y|- for red, yellow, or blank
      * @returns {object} liCol - dom element for li
      * @method 
+     * @memberof Board
+     * @inner
      */
     function _processCell(sText) {
         var liCol = document.createElement('li');
@@ -73,6 +87,8 @@ var Board = function(options) {
      * @returns {void} - outputs HTML to screen
      * @property {array} gameBoard - array for game matrix
      * @method 
+     * @memberof Board
+     * @inner
      */
     function _drawBoard() {
         var nCol = 0
@@ -112,7 +128,7 @@ var Board = function(options) {
 
     _init.call(this);
 
-    // api
+    // Board api
     return {
         gameBoard: this.gameBoard
         , target: this.target
