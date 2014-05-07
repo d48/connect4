@@ -5,6 +5,7 @@ $fgColor: #fff
 $gameBgColor: #0081f9
 $redPieceColor: red
 $yellowPieceColor: yellow
+$duration: .5s
 
 // main
 body
@@ -28,6 +29,19 @@ body
     margin: 0 auto
     margin-top: 30px
     width: 500px
+    -webkit-transition: all $duration ease-in-out
+    -moz-transition: all $duration ease-in-out
+    -ms-transition: all $duration ease-in-out
+    -o-transition: all $duration ease-in-out
+    transition: all $duration ease-in-out
+    padding-left: 200px
+    opacity: 0
+
+
+    &.show
+        opacity: 1
+        padding-left: 0
+
 
     .gameContainer
         float: left

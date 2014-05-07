@@ -27,6 +27,8 @@ btnCreate.addEventListener('click', function() {
             target: elGame
             , gameBoard: aBoard1 
         });
+
+        elGame.className += ' show';
     }
     bGameCreated = true;
 });
