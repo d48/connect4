@@ -1,9 +1,10 @@
 ## Introduction
 
-generator for grunt and grunt-contrib-watch repo for quick local testing using livereload
-
+web based connect4 game based on the board classic
 
 ## Requirements 
+
+### For local dev
 
 * Running OSX
 * node/npm installed
