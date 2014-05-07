@@ -1,27 +1,49 @@
-var aBoard1 = [
-          ['-','-','-','-','-','-','-']
-        , ['-','-','-','-','-','-','-']
-        , ['-','-','-','R','R','R','R']
-        , ['-','-','-','Y','Y','R','Y']
-        , ['-','-','-','Y','R','Y','Y']
-        , ['-','-','Y','Y','R','R','R']
-    ]
-    , elGame = document.querySelector('#game')
-    , elOutput = document.querySelector('#output')
-    ; 
-
-
-
-
 var Board = function(options) {
 
     this.gameBoard = typeof options.gameBoard !== 'undefined' ? options.gameBoard : [];
     this.target = typeof options.target !== 'undefined' ? options.target: null;
 
+
+    /**
+     * kicks of game lifecycle
+     * 
+     * @name _init
+     * @returns {void} - process game board drawing and results
+     * @method 
+     */
     function _init() {
         _drawBoard.call(this);
+        _showResult();
     }
 
+
+    /**
+     * Shows output of which color wins
+     * 
+     * @name _showResult
+     * @returns {void} - outputs text to screen
+     * @method 
+     */
+    function _showResult() {
+        var elResultContainer = document.createElement('div')
+            , elGameTarget = this.target
+            ;
+
+        elResultContainer.className = 'results';
+        elResultContainer.innerText = 'Red wins';
+
+        elGameTarget.parentNode.appendChild(elResultContainer); 
+    }
+
+
+    /**
+     * Determines how cell should be rendered based on type that is passed in
+     * 
+     * @name _processCell
+     * @param {string} sText - R|Y|- for red, yellow, or blank
+     * @returns {object} liCol - dom element for li
+     * @method 
+     */
     function _processCell(sText) {
         var liCol = document.createElement('li');
 
@@ -43,11 +65,20 @@ var Board = function(options) {
         return liCol;
     }
 
+
+    /**
+     * draws game board out based on gameBoard property
+     * 
+     * @name _drawBoard
+     * @returns {void} - outputs HTML to screen
+     * @property {array} gameBoard - array for game matrix
+     * @method 
+     */
     function _drawBoard() {
         var nCol = 0
             , nRow = 0
             , lenRows = this.gameBoard.length
-            , fragContainer = document.createDocumentFragment()
+            , divContainer = document.createElement('div')
             , ulRow
             , liCol
             , lenCol
@@ -70,27 +101,23 @@ var Board = function(options) {
             nCol = 0; 
 
             // append row to container
-            fragContainer.appendChild(ulRow); 
+            divContainer.appendChild(ulRow); 
         }
 
         // append container to body
-        this.target.appendChild(fragContainer);
+        divContainer.className = 'gameContainer';
+        this.target.appendChild(divContainer);
     }
 
 
     _init.call(this);
 
+    // api
     return {
         gameBoard: this.gameBoard
         , target: this.target
     }
-
 };
 
 
-// create instance
-var board = new Board({
-    target: elGame
-    , gameBoard: aBoard1 
-});
 
