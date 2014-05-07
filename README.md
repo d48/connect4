@@ -2,7 +2,7 @@
 
 web based connect4 game based on the board classic
 
-![connect four](http://f.cl.ly/items/100D011Z053z2Y0E1x46/Image%202014-05-07%20at%202.45.27%20PM.png)
+![connect four](http://f.cl.ly/items/1z2P402h2L1i3r0L2R1Z/Image%202014-05-07%20at%203.20.25%20PM.png)
 
 ## Requirements 
 
