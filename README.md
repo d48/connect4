@@ -21,3 +21,6 @@ web based connect4 game based on the board classic
 5. Edit file and save, watch browser reload
 6. To kill server and background processes, `$ npm stop`
 
+## Status
+
+In progress
