@@ -1,8 +1,8 @@
 {
-  "name": "connect4"
+  "name": "connect4",
   "version": "0.0.1",
-  "description": "",
-  "main": "",
+  "description": "web based connect4 game based on the board classic",
+  "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bin/start.sh",
@@ -14,5 +14,14 @@
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-cli": "~0.1.13"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/d48/connect4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/d48/connect4/issues"
+  },
+  "homepage": "https://github.com/d48/connect4"
 }
