@@ -12,8 +12,9 @@
   "license": "BSD",
   "dependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-cli": "~0.1.13"
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "devDependencies": {},
   "repository": {
