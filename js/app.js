@@ -28,18 +28,15 @@ var Board = function(options) {
         switch(sText) {
             case 'R': 
                 spanText = document.createElement('span');
-                spanText.innerText = sText;     
                 spanText.className = 'pieceRed';
                 liCol.appendChild(spanText);
                 break;
             case 'Y': 
                 spanText = document.createElement('span');
-                spanText.innerText = sText;     
                 spanText.className = 'pieceYellow';
                 liCol.appendChild(spanText);
                 break;
             default:
-                liCol.innerText= '';
                 break;
         }
 

@@ -33,7 +33,7 @@ body {
       text-align: center; }
 
 .pieceRed {
-  border: 50px;
+  border-radius: 30px;
   border-color: #99ccff;
   background-color: red;
   display: block;
@@ -41,7 +41,7 @@ body {
   height: 60px; }
 
 .pieceYellow {
-  border: 50px;
+  border-radius: 30px;
   border-color: #99ccff;
   background-color: yellow;
   display: block;
