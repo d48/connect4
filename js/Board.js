@@ -26,27 +26,31 @@ var Board = function(options) {
      */
     function _init() {
         _drawBoard.call(this);
-        _showResult.call(this);
     }
 
 
     /**
-     * Shows output of which color wins
+     * Shows output of message to screen
      * 
-     * @name _showResult
+     * @name showMessage
+     * @param {string} msg - message to show
      * @returns {void} - outputs text to screen
      * @method 
      * @memberof Board
      * @inner
      */
-    function _showResult() {
-        var elResultContainer = document.createElement('div')
-            , elGameTarget = this.target
+    function showMessage(msg) {
+        var sClass = 'results'
+            , elResultContainer = document.querySelector('.' + sClass)
+            , elGameTarget = this.target;
             ;
 
-        elResultContainer.className = 'results';
-        elResultContainer.innerText = 'Red wins';
+        if (!elResultContainer) {
+            elResultContainer = document.createElement('div');
+            elResultContainer.className = sClass;
+        } 
 
+        elResultContainer.innerText = msg;
         elGameTarget.parentNode[appendChild](elResultContainer); 
     }
 
@@ -135,6 +139,7 @@ var Board = function(options) {
     return {
         gameBoard: this.gameBoard
         , target: this.target
+        , showMessage: showMessage
     }
 };
 

@@ -6,9 +6,18 @@ var aBoard1 = [
         , ['-','-','-','Y','R','Y','Y']
         , ['-','-','Y','Y','R','R','R']
     ]
+    , aBoard2 = [
+          ['-','-','-','-','-','-','-']
+        , ['-','-','-','-','-','-','-']
+        , ['-','-','-','-','-','-','-']
+        , ['-','-','-','-','-','-','-']
+        , ['-','-','-','-','-','-','-']
+        , ['-','-','-','-','-','-','-']
+    ]
     , elGame = document.querySelector('#game')
     , btnCreate = document.querySelector('#btnCreate')
-    , bGameCreated = false;
+    , bGameCreated = false
+    , oGame 
     ; 
 
 
@@ -16,9 +25,9 @@ var aBoard1 = [
 btnCreate.addEventListener('click', function() {
     if (!bGameCreated) {
         // create game instance
-        var board = new Board({
+        oGame = new Board({
             target: elGame
-            , gameBoard: aBoard1 
+            , gameBoard: aBoard2 
         });
 
         elGame.className += ' show';
