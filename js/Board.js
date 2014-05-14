@@ -75,14 +75,6 @@ var Board = function(options) {
         this.showMessage("Player " + this.currentPlayer + "'s turn");
     }
 
-    function isWinner(board) {
-        
-    }
-
-    function clearBoard(board) {
-
-    }
-
     /**
      * Shows output of message to screen
      * 
