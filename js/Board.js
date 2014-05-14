@@ -46,28 +46,28 @@ var Board = function(options) {
         }
     }
 
-    function getPieceColor() {
+    function _getPieceColor() {
         return this.currentPlayer === 1 ? ' piece red' : ' piece yellow';
     }
 
-    function getRowNumber() {
-        return ' row_1';
+    function _getRowNumber(slot) {
+        return ' row_' + this.played['slot_' + slot].length;
+    }
+
+    function _canDrop(slot) {
+        return this.played['slot_' + slot].length < 6 ? true : false;
     }
 
     function dropPiece(slot) {
+        if (!_canDrop.call(this,slot)) {
+            return;
+        }
         var piece = document.createElement('div');
-        piece.className = 'slot_' + slot + this.getPieceColor() + this.getRowNumber();
-
         this.played['slot_' + slot].push(this.currentPlayer);
+        piece.className = 'slot_' + slot + _getPieceColor.call(this) + _getRowNumber.call(this,slot);
 
         this.target.appendChild(piece);    
         this.changePlayer();
-        // switch(slot) {
-        //     case 1:
-        //         break;
-        //     default:
-        //         break;
-        // }
     }
 
     function changePlayer() {
@@ -189,8 +189,6 @@ var Board = function(options) {
         gameBoard: this.gameBoard
         , changePlayer: changePlayer
         , currentPlayer: this.currentPlayer
-        , getPieceColor: getPieceColor
-        , getRowNumber: getRowNumber
         , dropPiece: dropPiece
         , showMessage: showMessage
         , directions: this.directions
