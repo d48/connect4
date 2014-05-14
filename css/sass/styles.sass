@@ -2,10 +2,29 @@
 $cellSpacing: 60px
 $bgColor: #4f9fff
 $fgColor: #fff
+$font: Arial, sans-serif
+$fontSize: 40px
 $gameBgColor: #0081f9
 $redPieceColor: red
 $yellowPieceColor: yellow
 $duration: .5s
+
+
+// mixins 
+@mixin transition($properties)
+    -webkit-transition: $properties
+    -moz-transition: $properties
+    -ms-transition: $properties
+    -o-transition: $properties
+    transition: $properties
+
+@mixin border-radius($properties)
+    -webkit-border-radius: $properties
+    -moz-border-radius: $properties
+    -ms-border-radius: $properties
+    -o-border-radius: $properties
+    border-radius: $properties
+   
 
 // main
 body
@@ -26,12 +45,9 @@ body
     display: block
     margin: 0 auto
     margin-top: 30px
+    position: relative
     width: 500px
-    -webkit-transition: all $duration ease-in-out
-    -moz-transition: all $duration ease-in-out
-    -ms-transition: all $duration ease-in-out
-    -o-transition: all $duration ease-in-out
-    transition: all $duration ease-in-out
+    @include transition(all $duration ease-in-out)
     padding-left: 200px
     opacity: 0
 
@@ -45,6 +61,8 @@ body
         float: left
         padding: 2px
         border: 4px solid $gameBgColor
+        position: relative
+        z-index: 1
  
     ul
         clear: both
@@ -53,37 +71,48 @@ body
         padding: 0
 
         li 
-            background-color: $gameBgColor
-            border: 2px solid $bgColor
+            /* background-color: $gameBgColor */
+            /* border: 2px solid $bgColor */
+            background-color: transparent
+            border: 2px solid $gameBgColor
             float: left
             width: $cellSpacing
             height: $cellSpacing
             line-height: $cellSpacing
             text-align: center
 
-  
-.pieceRed
-    border-radius: $cellSpacing / 2
-    border-color: $gameBgColor
-    background-color: $redPieceColor
+
+.piece
+    @include border-radius($cellSpacing / 2)
     display: block
     width: $cellSpacing
     height: $cellSpacing
+    position: absolute
 
-.pieceYellow
-    border-radius: $cellSpacing / 2
-    border-color: $gameBgColor
-    background-color: $yellowPieceColor
-    display: block
-    width: $cellSpacing
-    height: $cellSpacing
+    &.red 
+        background-color: $redPieceColor
 
-.results
+    &.yellow
+        background-color: $yellowPieceColor
+
+#output
     clear: both
-    display: block
-    font-size: 40px
-    font-family: Arial, sans-serif
+    font-size: $fontSize
+    font-family: $font
+    line-height: $fontSize
     padding-top: 30px
+
+#directions
+    clear: both
+    display: none
+    font-size: $fontSize * 0.75
+    font-family: $font
+    overflow: hidden
+    padding: 20px 0 10px 0
+
+    &.show 
+        display: block
+
 
 .spinner 
     width: 142px
@@ -91,3 +120,28 @@ body
     background-image: url(../img/spinner.gif)
     background-repeat: no-repeat
     margin: 0 auto
+
+
+.slot_1
+    left: 8px
+
+.slot_2
+    left: 72px
+
+.slot_3
+    left: 136px
+
+.slot_4
+    left: 200px
+
+.slot_5
+    left: 264px
+
+.slot_6
+    left: 328px
+    
+.slot_7
+    left: 392px
+
+.row_1
+    top: 328px

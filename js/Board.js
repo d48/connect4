@@ -10,10 +10,19 @@
 var Board = function(options) {
 
     this.gameBoard = typeof options.gameBoard !== 'undefined' ? options.gameBoard : [];
-    this.target = typeof options.target !== 'undefined' ? options.target: null;
-
-    var appendChild = 'appendChild';
-
+    this.directions= typeof options.directions !== 'undefined' ? options.directions : document.querySelector('#directions');
+    this.output = typeof options.output !== 'undefined' ? options.output : document.querySelector('#output');
+    this.target = typeof options.target !== 'undefined' ? options.target : null;
+    this.currentPlayer = 1;
+    this.played = {
+        slot_1: []
+        , slot_2: []
+        , slot_3: []
+        , slot_4: []
+        , slot_5: []
+        , slot_6: []
+        , slot_7: []
+    }
 
     /**
      * kicks of game lifecycle
@@ -26,32 +35,72 @@ var Board = function(options) {
      */
     function _init() {
         _drawBoard.call(this);
+
     }
 
+    function showBoard() {
+        if (this.target.className.indexOf('show') === -1) {
+            this.target.className += ' show';
+            this.showMessage("Player " + this.currentPlayer + "'s turn");
+            this.showMessage("Press number keys 1 - 6 to drop piece into slot", "directions");
+        }
+    }
+
+    function getPieceColor() {
+        return this.currentPlayer === 1 ? ' piece red' : ' piece yellow';
+    }
+
+    function getRowNumber() {
+        return ' row_1';
+    }
+
+    function dropPiece(slot) {
+        var piece = document.createElement('div');
+        piece.className = 'slot_' + slot + this.getPieceColor() + this.getRowNumber();
+
+        this.played['slot_' + slot].push(this.currentPlayer);
+
+        this.target.appendChild(piece);    
+        this.changePlayer();
+        // switch(slot) {
+        //     case 1:
+        //         break;
+        //     default:
+        //         break;
+        // }
+    }
+
+    function changePlayer() {
+        this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+        this.showMessage("Player " + this.currentPlayer + "'s turn");
+    }
+
+    function isWinner(board) {
+        
+    }
+
+    function clearBoard(board) {
+
+    }
 
     /**
      * Shows output of message to screen
      * 
      * @name showMessage
      * @param {string} msg - message to show
+     * @param {string} type - default message area or directions above the game
      * @returns {void} - outputs text to screen
      * @method 
      * @memberof Board
      * @inner
      */
-    function showMessage(msg) {
-        var sClass = 'results'
-            , elResultContainer = document.querySelector('.' + sClass)
-            , elGameTarget = this.target;
-            ;
-
-        if (!elResultContainer) {
-            elResultContainer = document.createElement('div');
-            elResultContainer.className = sClass;
-        } 
-
-        elResultContainer.innerText = msg;
-        elGameTarget.parentNode[appendChild](elResultContainer); 
+    function showMessage(msg, type) {
+        if (type && type === 'directions') {
+            this.directions.className = 'show';
+            this.directions.innerText = msg;
+        } else {
+            this.output.innerText = msg;
+        }
     }
 
 
@@ -138,8 +187,17 @@ var Board = function(options) {
     // Board api
     return {
         gameBoard: this.gameBoard
-        , target: this.target
+        , changePlayer: changePlayer
+        , currentPlayer: this.currentPlayer
+        , getPieceColor: getPieceColor
+        , getRowNumber: getRowNumber
+        , dropPiece: dropPiece
         , showMessage: showMessage
+        , directions: this.directions
+        , output: this.output 
+        , played: this.played
+        , showBoard: showBoard
+        , target: this.target
     }
 };
 

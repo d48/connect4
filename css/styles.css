@@ -16,6 +16,7 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 30px;
+  position: relative;
   width: 500px;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -30,43 +31,56 @@ body {
   .game .gameContainer {
     float: left;
     padding: 2px;
-    border: 4px solid #0081f9; }
+    border: 4px solid #0081f9;
+    position: relative;
+    z-index: 1; }
   .game ul {
     clear: both;
     list-style-type: none;
     margin: 0;
     padding: 0; }
     .game ul li {
-      background-color: #0081f9;
-      border: 2px solid #4f9fff;
+      /* background-color: $gameBgColor */
+      /* border: 2px solid $bgColor */
+      background-color: transparent;
+      border: 2px solid #0081f9;
       float: left;
       width: 60px;
       height: 60px;
       line-height: 60px;
       text-align: center; }
 
-.pieceRed {
+.piece {
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
   border-radius: 30px;
-  border-color: #0081f9;
-  background-color: red;
   display: block;
   width: 60px;
-  height: 60px; }
+  height: 60px;
+  position: absolute; }
+  .piece.red {
+    background-color: red; }
+  .piece.yellow {
+    background-color: yellow; }
 
-.pieceYellow {
-  border-radius: 30px;
-  border-color: #0081f9;
-  background-color: yellow;
-  display: block;
-  width: 60px;
-  height: 60px; }
-
-.results {
+#output {
   clear: both;
-  display: block;
   font-size: 40px;
   font-family: Arial, sans-serif;
+  line-height: 40px;
   padding-top: 30px; }
+
+#directions {
+  clear: both;
+  display: none;
+  font-size: 30px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  padding: 20px 0 10px 0; }
+  #directions.show {
+    display: block; }
 
 .spinner {
   width: 142px;
@@ -74,3 +88,27 @@ body {
   background-image: url(../img/spinner.gif);
   background-repeat: no-repeat;
   margin: 0 auto; }
+
+.slot_1 {
+  left: 8px; }
+
+.slot_2 {
+  left: 72px; }
+
+.slot_3 {
+  left: 136px; }
+
+.slot_4 {
+  left: 200px; }
+
+.slot_5 {
+  left: 264px; }
+
+.slot_6 {
+  left: 328px; }
+
+.slot_7 {
+  left: 392px; }
+
+.row_1 {
+  top: 328px; }
