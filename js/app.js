@@ -65,7 +65,7 @@ document.addEventListener('keyup', function(event) {
 
 oGame = new Board({
     target: elGame
-    , gameBoard: aBoard2 
+    , gameBoard: aBoard1
 });
 bGameCreated = true;
 oGame.showMessage('Press Up arrow to begin game');
