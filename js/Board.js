@@ -42,7 +42,7 @@ var Board = function(options) {
         if (this.target.className.indexOf('show') === -1) {
             this.target.className += ' show';
             this.showMessage("Player " + this.currentPlayer + "'s turn");
-            this.showMessage("Press number keys 1 - 6 to drop piece into slot", "directions");
+            this.showMessage("Press number keys 1 - 7 to drop piece into slot", "directions");
         }
     }
 
@@ -129,8 +129,8 @@ var Board = function(options) {
 
 
     /**
-     * draws game board out based on gameBoard property
-     * 
+     * draws game board out based on gameBoard property. 
+     * Includes numbers for keyboard
      * @name _drawBoard
      * @returns {void} - outputs HTML to screen
      * @property {array} gameBoard - array for game matrix
@@ -141,12 +141,14 @@ var Board = function(options) {
     function _drawBoard() {
         var nCol = 0
             , nRow = 0
-            , lenRows = this.gameBoard.length
+            , lenRows = this.gameBoard.length 
             , divContainer = document.createElement('div')
+            , numberRow = document.createElement('ul')
             , ulRow
             , liCol
             , lenCol
             , row
+            , numRowLi
             ;
 
 
@@ -159,6 +161,11 @@ var Board = function(options) {
 
             // iterate through row columns
             for(; nCol < lenCol; nCol++) {
+                if (nRow === (lenRows - 1)) {
+                    numRowLi = document.createElement('li');
+                    numRowLi.innerText = nCol + 1;
+                    numberRow.appendChild(numRowLi);
+                }
                 ulRow.appendChild(_processCell(row[nCol]));
             }
             // reset column
@@ -170,6 +177,8 @@ var Board = function(options) {
 
         // append container to body
         divContainer.className = 'gameContainer';
+        numberRow.className = 'numbers';
+        this.target.parentNode.insertBefore(numberRow, this.target);
         this.target.appendChild(divContainer);
     }
 

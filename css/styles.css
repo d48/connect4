@@ -89,6 +89,11 @@ body {
   background-repeat: no-repeat;
   margin: 0 auto; }
 
+.numbers {
+  display: none; }
+  .numbers.show {
+    display: block; }
+
 .slot_1 {
   left: 8px; }
 

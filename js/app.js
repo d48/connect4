@@ -6,7 +6,7 @@ var aBoard1 = [
         , ['-','-','-','Y','R','Y','Y']
         , ['-','-','Y','Y','R','R','R']
     ]
-    , aBoard2 = [
+    , aBoardBlank = [
           ['-','-','-','-','-','-','-']
         , ['-','-','-','-','-','-','-']
         , ['-','-','-','-','-','-','-']
@@ -65,10 +65,9 @@ document.addEventListener('keyup', function(event) {
 
 oGame = new Board({
     target: elGame
-    , gameBoard: aBoard1
+    , gameBoard: aBoardBlank
 });
 bGameCreated = true;
 oGame.showMessage('Press Up arrow to begin game');
 
-
-
+Helpers.triggerEvent(document, 38);
