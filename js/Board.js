@@ -23,6 +23,7 @@ var Board = function(options) {
         , slot_6: []
         , slot_7: []
     }
+    var numbers = typeof options.numbers !== 'undefined' ? options.numbers : document.querySelector('.numbers');
 
     /**
      * kicks of game lifecycle
@@ -161,6 +162,7 @@ var Board = function(options) {
 
             // iterate through row columns
             for(; nCol < lenCol; nCol++) {
+                // create numbers row
                 if (nRow === (lenRows - 1)) {
                     numRowLi = document.createElement('li');
                     numRowLi.innerText = nCol + 1;
@@ -177,7 +179,7 @@ var Board = function(options) {
 
         // append container to body
         divContainer.className = 'gameContainer';
-        numberRow.className = 'numbers';
+        numberRow.className = 'numbers show';
         this.target.parentNode.insertBefore(numberRow, this.target);
         this.target.appendChild(divContainer);
     }

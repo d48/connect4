@@ -44,7 +44,6 @@ body
     color: #000
     display: block
     margin: 0 auto
-    margin-top: 30px
     position: relative
     width: 500px
     @include transition(all $duration ease-in-out)
@@ -125,6 +124,20 @@ body
 // numbers above game
 .numbers
     display: none
+    font-family: $font
+    font-size: $fontSize
+    list-style-type: none
+    margin: 0 auto
+    margin-top: 20px
+    opacity: 0.3
+    padding: 0
+    padding-right: 52px
+    width: 440px
+
+    li 
+        display: inline
+        padding: 0 21px
+        text-align: center
 
     &.show 
         display: block

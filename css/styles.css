@@ -15,7 +15,6 @@ body {
   color: black;
   display: block;
   margin: 0 auto;
-  margin-top: 30px;
   position: relative;
   width: 500px;
   -webkit-transition: all 0.5s ease-in-out;
@@ -90,7 +89,20 @@ body {
   margin: 0 auto; }
 
 .numbers {
-  display: none; }
+  display: none;
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  list-style-type: none;
+  margin: 0 auto;
+  margin-top: 20px;
+  opacity: 0.3;
+  padding: 0;
+  padding-right: 52px;
+  width: 440px; }
+  .numbers li {
+    display: inline;
+    padding: 0 21px;
+    text-align: center; }
   .numbers.show {
     display: block; }
 
